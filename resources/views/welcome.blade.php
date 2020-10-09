@@ -3,7 +3,11 @@
 @section('title', 'Welcome')
 
 @section('content')
-        <main>
-
-        </main>
+    <main>
+        <div class="rows">
+            <div class="col s2">
+            </div>
+            <div class="col s10"></div>
+        </div>
+    </main>
 @endsection

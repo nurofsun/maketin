@@ -9161,3 +9161,16 @@ input[type=range]::-ms-thumb {
   }
 }
 
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-form {
+  width: 300px;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
