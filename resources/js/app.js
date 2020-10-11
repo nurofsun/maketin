@@ -1,1 +1,2 @@
-import 'materialize-css';
+import 'bootstrap';
+import 'jquery';

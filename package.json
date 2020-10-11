@@ -20,6 +20,9 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "materialize-css": "^1.0.0-rc.2"
+        "bootstrap": "^4.5.2",
+        "jquery": "^3.5.1",
+        "materialize-css": "^1.0.0-rc.2",
+        "popper.js": "^1.16.1"
     }
 }
