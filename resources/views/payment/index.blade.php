@@ -15,16 +15,18 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($payments as $payment)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $payment->amount }}</td>
-                    <td>{{ $months[$payment->month - 1] }}</td>
-                    <td>{{ $payment->created_at }}</td>
-                    <td>NULL</td>
-                    <td>NULL</td>
-                </tr>
-            @endforeach
+            @if ($payments)
+                @foreach ($payments as $payment)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $payment->amount }}</td>
+                        <td>{{ $months[$payment->month - 1] }}</td>
+                        <td>{{ $payment->created_at }}</td>
+                        <td>NULL</td>
+                        <td>NULL</td>
+                    </tr>
+                @endforeach
+            @endif
         </tbody>
     </table>
 @endsection

@@ -15,4 +15,7 @@ class Student extends Model
         'level'
     ];
 
+    public function payments() {
+        return $this->hasMany('App\Models\Payment');
+    }
 }

@@ -33,7 +33,7 @@
                         Edit
                     </button>
                     @include('student.edit')
-                    <form action="{{ route('payment.history') }}" method="GET" class="d-inline-block">
+                    <form action="{{ route('student.payments') }}" method="GET" class="d-inline-block">
                         @csrf
                         <input type="hidden" name="student_id" value="{{ $student->id }}">        
                         <button class="btn btn-sm btn-light font-weight-bold" type="submit">Keuangan</button>

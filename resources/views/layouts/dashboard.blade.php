@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ config('app.name') }} - @yield('title')</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}" media="all">
+        <script src="{{ asset('fontawesome/js/all.min.js') }}"></script>
     </head>
     <body>
         <div id="app">
@@ -20,26 +21,31 @@
             <main id="content">
                 <div class="container py-4">
                     <div class="row">
-                        <div class="col-12 col-md-3">
-                            <aside class="d-flex 100vh bg-white flex-column shadow rounded-lg">
+                        <div class="col-12 col-md-2">
+                            <aside class="d-flex bg-white flex-column shadow rounded-lg">
                                 <ul class="nav flex-column">
                                    <li class="nav-item">
                                        <a class="nav-link" href="{{ route('home') }}">
+                                           <i class="fas fa-home"></i>
                                            Dashboard
                                        </a>
                                    </li>
                                    <li class="nav-item">
                                        <a class="nav-link" href="{{ route('student.list') }}">
+                                           <i class="fas fa-users"></i>
                                             Students
                                        </a>
                                    </li>
                                    <li class="nav-item">
-                                       <a class="nav-link" href="#">Payment</a>
+                                       <a class="nav-link" href="#">
+                                           <i class="fas fa-money-bill-alt"></i>
+                                           Payment
+                                       </a>
                                    </li>
                                 </ul>
                             </aside>
                         </div>
-                        <div class="col-12 col-md-9">
+                        <div class="col-12 col-md-10">
                             @yield('content')
                         </div>
                     </div>
