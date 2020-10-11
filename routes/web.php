@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // controllers
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\PaymentController;
 /*
@@ -16,7 +17,8 @@ use App\Http\Controllers\PaymentController;
 */
 
 Route::prefix('dashboard')->group(function() {
-    Route::get('students', [ StudentController::class, 'index' ]);
+    Route::get('/', [ HomeController::class, 'index' ])->name('home');
+    Route::get('students', [ StudentController::class, 'index' ])->name('student.list');
     Route::post('student/store', [ StudentController::class, 'store' ])->name('student.store');
     Route::put('student/{id}/update', [ StudentController::class, 'update' ])->name('student.update');
     Route::delete('student/{id}/delete', [ StudentController::class, 'destroy' ])->name('student.destroy');

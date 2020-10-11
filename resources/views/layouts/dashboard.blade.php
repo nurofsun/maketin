@@ -8,25 +8,48 @@
     </head>
     <body>
         <div id="app">
-            <div class="row no-gutters">
-                <div class="col-12 col-md-2">
-                    <nav class="sidenav">
-                        <ul class="nav vh-100" aria-label="Main Navigation" role="Navigation">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Dashboard</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-12 col-md-10">
-                    <nav class="navbar navbar-light bg-white navbar-expand-lg shadow-sm">
-                        <a class="navbar-brand" href="">@yield('title')</a>
-                    </nav>
-                    <div class="container-fluid">
-                        @yield('content')
+            <header id="top">
+                <nav class="navbar navbar-light bg-white shadow-sm navbar-expand-lg">
+                    <div class="container">
+                        <a class="navbar-brand" href="{{ route('home') }}">
+                            {{ config('app.name') }}
+                        </a>
+                    </div>
+                </nav>
+            </header>
+            <main id="content">
+                <div class="container py-4">
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <aside class="d-flex 100vh bg-white flex-column shadow rounded-lg">
+                                <ul class="nav flex-column">
+                                   <li class="nav-item">
+                                       <a class="nav-link" href="{{ route('home') }}">
+                                           Dashboard
+                                       </a>
+                                   </li>
+                                   <li class="nav-item">
+                                       <a class="nav-link" href="{{ route('student.list') }}">
+                                            Students
+                                       </a>
+                                   </li>
+                                   <li class="nav-item">
+                                       <a class="nav-link" href="#">Payment</a>
+                                   </li>
+                                </ul>
+                            </aside>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @yield('content')
+                        </div>
                     </div>
                 </div>
-            </div>
+            </main>
+            <footer id="bottom">
+                <p class="text-center">
+                    {{ config('app.name') }} &copy; 2020
+                </p>
+            </footer>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>

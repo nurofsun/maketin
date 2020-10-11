@@ -1,17 +1,17 @@
 <table class="table">
-    <thead>
+    <thead class="bg-primary text-white">
         <tr>
-            <th>#</th>
-            <th>Nama</th>
-            <th>Jenis Kelamin</th>
-            <th>Level</th>
-            <th>Opsi</th>
+            <th scope="col">#</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Jenis Kelamin</th>
+            <th scope="col">Level</th>
+            <th scope="col">Opsi</th>
         </tr>
     </thead>
     <tbody>
         @foreach( $students as $student)
             <tr>
-                <td>{{ $loop->iteration }}</td>
+                <th>{{ $loop->iteration }}</th>
                 <td>{{ $student->name }}</td>
                 <td>
                     @if ($student->gender === 'L')
@@ -35,7 +35,7 @@
                     @include('student.edit')
                     <form action="{{ route('payment.history') }}" method="GET" class="d-inline-block">
                         @csrf
-                        <input type="number" name="student_id" value="{{ $student->id }}">        
+                        <input type="hidden" name="student_id" value="{{ $student->id }}">        
                         <button class="btn btn-sm btn-light font-weight-bold" type="submit">Keuangan</button>
                     </form>
                 </td>
