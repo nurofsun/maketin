@@ -14,4 +14,5 @@ class Student extends Model
         'gender',
         'level'
     ];
+
 }

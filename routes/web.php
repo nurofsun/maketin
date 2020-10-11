@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 // controllers
 use App\Http\Controllers\StudentController;
-
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +20,7 @@ Route::prefix('dashboard')->group(function() {
     Route::post('student/store', [ StudentController::class, 'store' ])->name('student.store');
     Route::put('student/{id}/update', [ StudentController::class, 'update' ])->name('student.update');
     Route::delete('student/{id}/delete', [ StudentController::class, 'destroy' ])->name('student.destroy');
+    Route::get('student/payment', [ PaymentController::class, 'index' ])->name('payment.history');
 });
 Route::get('/', function () {
     return view('login');
