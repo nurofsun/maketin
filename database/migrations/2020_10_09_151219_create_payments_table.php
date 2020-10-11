@@ -17,6 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->integer('month');
             $table->bigInteger('amount');
+            $table->boolean('status')->default(false);
             $table->foreignId('student_id')
                 ->constrained()
                 ->onDelete('cascade')

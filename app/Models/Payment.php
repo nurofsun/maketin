@@ -9,6 +9,13 @@ class Payment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'amount',
+        'month',
+        'status',
+        'student_id'
+    ];
+
     public function student() 
     {
         return $this->belongsTo('App\Models\Student');

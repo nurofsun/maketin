@@ -22,7 +22,10 @@ Route::prefix('dashboard')->group(function() {
     Route::post('student/store', [ StudentController::class, 'store' ])->name('student.store');
     Route::put('student/{id}/update', [ StudentController::class, 'update' ])->name('student.update');
     Route::delete('student/{id}/delete', [ StudentController::class, 'destroy' ])->name('student.destroy');
-    Route::get('student/payment', [ StudentController::class, 'payment_history' ])->name('student.payments');
+
+    Route::get('student/{id}/payment', [ PaymentController::class, 'index' ])->name('payment.index');
+    Route::post('student/{id}/payment/store', [ PaymentController::class, 'store' ])->name('payment.store');
+    Route::put('student/{student_id}/payment/{id}/update', [ PaymentController::class, 'update' ])->name('payment.update');
 });
 Route::get('/', function () {
     return view('login');

@@ -55,9 +55,9 @@ class StudentController extends Controller
      * @method get all payments history of student 
      * by request query student_id
      */
-    public function payment_history(Request $request) 
+    public function payment_history(Request $request, $id) 
     {
-        $student = Student::find($request->query('student_id'));
+        $student = Student::find($id);
         $months = [
             'Januari',
             'Februari',
