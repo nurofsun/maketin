@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Nurahmat',
+            'avatar' => 'images/nurofsun.jpg',
             'username' => 'nurofsun',
             'password' => Hash::make('password')
         ]);

@@ -12,8 +12,20 @@
             <main id="content">
                 <div class="row no-gutters">
                     <div class="col-12 col-md-2">
-                        <aside class="d-flex flex-column">
-                            <ul class="nav flex-column bg-white shadow rounded-lg vh-100">
+                        <aside class="d-flex flex-column position-fixed" style="width: 200px;">
+                            <ul class="nav flex-column bg-white shadow rounded-lg vh-100 position-static">
+                                <li class="admin p-3 d-flex align-items-center border-bottom-primary">
+                                    <img 
+                                        width="48" 
+                                        height="48" 
+                                        class="rounded-pill mr-2 d-block" 
+                                        src="{{ asset('images/nurofsun.jpg') }}" 
+                                        alt="{{ Auth::user()->name }}">
+                                        <div>
+                                            <p class="font-weight-bold m-0"><small>Welcome</small></p>
+                                            <p class="d-block m-0 font-weight-bold">{{ Auth::user()->name }}</p>
+                                        </div>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('home') }}">
                                         <i class="fas fa-home"></i>
@@ -45,6 +57,10 @@
                                         </a>
                                         <div class="ml-auto">
                                             @yield('action')
+                                            <a href="{{ route('logout') }}" class="btn btn-sm btn-outline-dark">
+                                                <span class="font-weight-bold">Logout</span>
+                                                <i class="fas fa-sign-out-alt"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </nav>

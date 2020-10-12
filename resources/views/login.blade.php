@@ -5,15 +5,16 @@
 @section('content')
     <main class="login">
         <section class="login-form">
-            <form action="#" method="POST" class="card">
+            <form action="{{ route('authenticate') }}" method="POST" class="card">
+                @csrf
                 <div class="card-content">
                     <h5 class="card-title">Welcome Back, Please Login First.</h5>
                     <div class="input-field">
-                        <input id="username" type="text" placeholder="Username">
+                        <input name="username" id="username" type="text" placeholder="Username">
                         <label for="username">Username</label>
                     </div>
                     <div class="input-field">
-                        <input id="password" type="password">
+                        <input id="password" type="password" name="password">
                         <label for="password">Password</label>
                     </div>
                 </div>

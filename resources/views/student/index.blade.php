@@ -2,19 +2,17 @@
 
 @section('title', $title )
 
-@section('action')
-    <button 
-        data-toggle="modal"
-        data-target="#modalNewStudent"
-        class="btn btn-sm btn-outline-primary font-weight-bold">
-        <i class="fas fa-plus-circle"></i>
-        Santri Baru
-    </button>
-    @include('student.create')
-@endsection
 
 @section('content')
     <section class="py-4">
+        <button 
+            data-toggle="modal"
+            data-target="#modalNewStudent"
+            class="btn btn-primary font-weight-bold mb-2">
+            <i class="fas fa-plus"></i>
+            Santri Baru
+        </button>
+        @include('student.create')
         @include('student.list')
     </section>
 @endsection
