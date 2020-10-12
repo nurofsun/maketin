@@ -9,43 +9,46 @@
     </head>
     <body>
         <div id="app">
-            <header id="top">
-                <nav class="navbar navbar-light bg-white shadow-sm navbar-expand-lg">
-                    <div class="container">
-                        <a class="navbar-brand" href="{{ route('home') }}">
-                            {{ config('app.name') }}
-                        </a>
-                    </div>
-                </nav>
-            </header>
             <main id="content">
-                <div class="container py-4">
-                    <div class="row">
-                        <div class="col-12 col-md-3">
-                            <aside class="d-flex flex-column">
-                                <ul class="nav flex-column bg-white shadow rounded-lg">
-                                   <li class="nav-item">
-                                       <a class="nav-link" href="{{ route('home') }}">
-                                           <i class="fas fa-home"></i>
-                                           Dashboard
-                                       </a>
-                                   </li>
-                                   <li class="nav-item">
-                                       <a class="nav-link" href="{{ route('student.list') }}">
-                                           <i class="fas fa-users"></i>
-                                            Students
-                                       </a>
-                                   </li>
-                                   <li class="nav-item">
-                                       <a class="nav-link" href="#">
-                                           <i class="fas fa-money-bill-alt"></i>
-                                           Payment
-                                       </a>
-                                   </li>
-                                </ul>
-                            </aside>
-                        </div>
-                        <div class="col-12 col-md-9">
+                <div class="row no-gutters">
+                    <div class="col-12 col-md-2">
+                        <aside class="d-flex flex-column">
+                            <ul class="nav flex-column bg-white shadow rounded-lg vh-100">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('home') }}">
+                                        <i class="fas fa-home"></i>
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('student.list') }}">
+                                        <i class="fas fa-users"></i>
+                                        Students
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="fas fa-money-bill-alt"></i>
+                                        Payment
+                                    </a>
+                                </li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="col-12 col-md-10">
+                        <div class="container-fluid py-3">
+                            <header id="top">
+                                <nav class="navbar navbar-light bg-white navbar-expand-lg navbar-fixed-top rounded-lg">
+                                    <div class="container">
+                                        <a class="navbar-brand font-weight-bold" href="{{ route('home') }}">
+                                            {{ $title }}
+                                        </a>
+                                        <div class="ml-auto">
+                                            @yield('action')
+                                        </div>
+                                    </div>
+                                </nav>
+                            </header>
                             @yield('content')
                         </div>
                     </div>
@@ -53,7 +56,7 @@
             </main>
             <footer id="bottom">
                 <p class="text-center">
-                    {{ config('app.name') }} &copy; 2020
+                {{ config('app.name') }} &copy; 2020
                 </p>
             </footer>
         </div>

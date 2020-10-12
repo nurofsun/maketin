@@ -1,4 +1,4 @@
-<table class="table mt-3 table-light">
+<table id="payments" class="table table-light">
     <thead>
         <tr>
             <th>#</th>
@@ -14,7 +14,7 @@
             @foreach ($payments as $payment)
                 <tr>
                     <th>{{ $loop->iteration }}</th>
-                    <td>{{ $payment->amount }}</td>
+                    <td class="amount">{{ $payment->amount }}</td>
                     <td>{{ $months[$payment->month - 1] }}</td>
                     <td>{{ $payment->created_at }}</td>
                     <td>

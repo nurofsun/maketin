@@ -11014,10 +11014,6 @@ a.text-dark:focus {
   }
 }
 
-.nav {
-  border-top: 2px solid #0cce6b;
-}
-
 .nav-link {
   transition: 0.5s;
   font-weight: bold;
