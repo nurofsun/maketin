@@ -19,14 +19,18 @@
                     </select>
                 </div>
                 <div class="mb-2">
-                    <label>
-                        Lunas
-                        <input type="radio" value="true" name="status">
-                    </label>
-                    <label>
-                        Belum Lunas
-                        <input type="radio" value="false" name="status">
-                    </label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="true" name="status">
+                        <label class="form-check-label">
+                            Lunas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="false" name="status">
+                        <label class="form-check-label">
+                            Belum Lunas
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">

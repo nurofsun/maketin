@@ -1,5 +1,5 @@
-<table class="table">
-    <thead class="bg-primary text-white">
+<table class="table table-light">
+    <thead>
         <tr>
             <th scope="col">#</th>
             <th scope="col">Nama</th>
@@ -24,18 +24,26 @@
                     <span class="badge badge-primary">{{ $student->level }}</span>
                 </td>
                 <td>
-                    <form action="{{ route('student.destroy', $student->id) }}" method="POST" class="d-inline-block">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-light btn-sm font-weight-bold" type="submit">Delete</button>
-                    </form>
-                    <button class="btn btn-light btn-sm font-weight-bold" data-toggle="modal" data-target="#modalEditStudent-{{ $student->id }}">
-                        Edit
-                    </button>
-                    @include('student.edit')
-                    <a href="{{ route("payment.index", $student->id ) }}" class="btn btn-sm btn-light font-weight-bold" type="submit">
-                        Keuangan
-                    </a>
+                    <div class="btn-group">
+                        <form action="{{ route('student.destroy', $student->id) }}" method="POST" class="d-inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-light btn-sm font-weight-bold" type="submit">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                        <button 
+                            class="btn btn-light btn-sm font-weight-bold" 
+                            data-toggle="modal" 
+                            data-target="#modalEditStudent-{{ $student->id }}">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        @include('student.edit')
+                        <a href="{{ route("payment.index", $student->id ) }}" class="btn btn-sm btn-light font-weight-bold" type="submit">
+                            <i class="fas fa-money-bill-alt"></i>
+                            Keuangan
+                        </a>
+                    </div>
                 </td>
             </tr>
         @endforeach

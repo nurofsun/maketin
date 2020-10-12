@@ -1,28 +1,11 @@
-.custom-field {
-  @extend .my-4;
-  position: relative;
-  label {
-    position: absolute;
-    color: transparentize($dark,0.3);
-    top: 0px;
-    left: 0px;
-    padding: 8px;
-    z-index: -1;
-    transition: .2s;
-  }
-  .custom-input {
-    @extend .w-100;
-    @extend .p-2;
-    border-top-width: 0px;
-    border-right-width: 0px;
-    border-left-width: 0px;
-    background: white;
-    &:focus::placeholder {
-      color: white;
-    } 
-    &:focus ~ label {
-      font-size: 10px;
-      top: -20px;
-    }
-  }
+.nav {
+  border-top: 2px solid map-get($theme-colors , "primary" );
+}
+.nav-link {
+  transition: .5s;
+  font-weight: bold;
+}
+label, .label {
+  font-weight: bold;
+  font-size: 12pt;
 }

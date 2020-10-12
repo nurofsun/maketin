@@ -76,4 +76,15 @@ class PaymentController extends Controller
 
         return redirect()->back();
     }
+
+    /**
+     * delete payment history by its ID, and student id
+     */
+    public function destroy($student_id, $id)
+    {
+        Payment::where('id', $id)
+            ->where('student_id', $student_id)
+            ->delete();
+        return redirect()->back();
+    }
 }

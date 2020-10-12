@@ -21,9 +21,9 @@
             <main id="content">
                 <div class="container py-4">
                     <div class="row">
-                        <div class="col-12 col-md-2">
-                            <aside class="d-flex bg-white flex-column shadow rounded-lg">
-                                <ul class="nav flex-column">
+                        <div class="col-12 col-md-3">
+                            <aside class="d-flex flex-column">
+                                <ul class="nav flex-column bg-white shadow rounded-lg">
                                    <li class="nav-item">
                                        <a class="nav-link" href="{{ route('home') }}">
                                            <i class="fas fa-home"></i>
@@ -45,7 +45,7 @@
                                 </ul>
                             </aside>
                         </div>
-                        <div class="col-12 col-md-10">
+                        <div class="col-12 col-md-9">
                             @yield('content')
                         </div>
                     </div>

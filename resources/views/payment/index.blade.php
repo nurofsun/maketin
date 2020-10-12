@@ -16,41 +16,6 @@
             </button>
             @include('payment.create')
         </header>
-        <table class="table mt-3 shadow rounded-lg">
-            <thead class="bg-primary text-white">
-                <tr>
-                    <th>#</th>
-                    <th>Nominal</th>
-                    <th>Bulan</th>
-                    <th>Tanggal Pembayaran</th>
-                    <th>Status</th>
-                    <th>Opsi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if ($payments)
-                    @foreach ($payments as $payment)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $payment->amount }}</td>
-                            <td>{{ $months[$payment->month - 1] }}</td>
-                            <td>{{ $payment->created_at }}</td>
-                            <td>
-                                @if ($payment->status)
-                                    <span class="badge badge-success">Lunas</span>
-                                @else
-                                    <span class="badge badge-danger">Belum Lunas</span>
-                                @endif
-                            </td>
-                            <td>
-                                <button class="btn btn-sm btn-light">Delete</button>
-                                <button data-toggle="modal" data-target="#editPaymentModal-{{ $payment->id }}" class="btn btn-sm btn-light">Edit</button>
-                                @include('payment.edit')
-                            </td>
-                        </tr>
-                    @endforeach
-                @endif
-            </tbody>
-        </table>
+        @include('payment.list')
     </section>
 @endsection
