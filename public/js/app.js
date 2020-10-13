@@ -18020,52 +18020,6 @@ Popper.Defaults = Defaults;
 
 /***/ }),
 
-/***/ "./node_modules/rupiaf.js/dist/scripts/rupiaf.common.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/rupiaf.js/dist/scripts/rupiaf.common.js ***!
-  \**************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Rupiaf; });
-class Rupiaf {
-    constructor(money) {
-        this.money = money;
-    }
-    convert() {
-        this.money = this.money.toString().replace(/\./g, '');
-        let step = 3, sisa = this.money.length % step, counter = Math.floor(this.money.length / step);
-        this.money = this.money.split('');
-        if (sisa == 0) {
-            if (counter != 1) {
-                for (let i = 0; i < counter; i++) {
-                    this.money.splice(this.money.length - (step++), 0, '.');
-                    step += 3;
-                }
-                this.money = this.money.join('');
-                return this.money.substring(1);
-            }
-            return this.money.join('');
-        }
-        else {
-            for (let i = 0; i < counter; i++) {
-                this.money.splice(this.money.length - (step++), 0, '.');
-                step += 3;
-            }
-            return this.money.join('');
-        }
-    }
-    clean() {
-        this.money = this.money.replace(/\./g, '');
-        return parseInt(this.money);
-    }
-}
-//# sourceMappingURL=rupiaf.common.js.map
-
-/***/ }),
-
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -18106,83 +18060,12 @@ module.exports = g;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _payment_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./payment.js */ "./resources/js/payment.js");
-/* harmony import */ var _home_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home.js */ "./resources/js/home.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_1__);
 
 
-
-
-
-/***/ }),
-
-/***/ "./resources/js/home.js":
-/*!******************************!*\
-  !*** ./resources/js/home.js ***!
-  \******************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_rupiaf_js_dist_scripts_rupiaf_common_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/rupiaf.js/dist/scripts/rupiaf.common.js */ "./node_modules/rupiaf.js/dist/scripts/rupiaf.common.js");
-
-
-function getAmounts() {
-  return new Promise(function (resolve, reject) {
-    var amountElements = document.querySelectorAll('.amount');
-
-    if (amountElements.length !== 0) {
-      resolve(amountElements);
-    }
-
-    reject('Cannot find amount elements');
-  });
-}
-
-getAmounts().then(function (elements) {
-  elements.forEach(function (element) {
-    element.textContent = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common_js__WEBPACK_IMPORTED_MODULE_0__["default"](element.textContent).convert();
-  });
-});
-
-/***/ }),
-
-/***/ "./resources/js/payment.js":
-/*!*********************************!*\
-  !*** ./resources/js/payment.js ***!
-  \*********************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/rupiaf.js/dist/scripts/rupiaf.common */ "./node_modules/rupiaf.js/dist/scripts/rupiaf.common.js");
-
-
-function convertTablePaymentAmount() {
-  return new Promise(function (resolve, reject) {
-    var columnAmounts = document.querySelectorAll('#payments .amount');
-
-    if (columnAmounts) {
-      resolve(columnAmounts);
-    }
-
-    reject(error);
-  });
-}
-
-convertTablePaymentAmount().then(function (elements) {
-  elements.forEach(function (element) {
-    var rupiah = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](element.textContent);
-    element.textContent = rupiah.convert();
-  });
-})["catch"](function (error) {
-  return console.log(error);
-});
 
 /***/ }),
 

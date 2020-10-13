@@ -33,4 +33,5 @@
             </div>
         </div>
     </section>
+    <script src="{{ @asset('js/payment.js') }}"></script>
 @endsection
