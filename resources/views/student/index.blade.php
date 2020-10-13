@@ -5,14 +5,13 @@
 
 @section('content')
     <section class="py-4">
-        <button 
-            data-toggle="modal"
-            data-target="#modalNewStudent"
-            class="btn btn-primary font-weight-bold mb-2">
-            <i class="fas fa-plus"></i>
-            Santri Baru
-        </button>
-        @include('student.create')
-        @include('student.list')
+        <div class="row">
+            <div class="col-12 col-md-3">
+                @include('student.create')
+            </div>
+            <div class="col-12 col-md-9">
+                @include('student.list')
+            </div>
+        </div>
     </section>
 @endsection

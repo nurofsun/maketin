@@ -22,7 +22,7 @@
                                         src="{{ asset('images/nurofsun.jpg') }}" 
                                         alt="{{ Auth::user()->name }}">
                                         <div>
-                                            <p class="font-weight-bold m-0"><small>Welcome</small></p>
+                                            <p class="font-weight-bold mb-0"><small>Welcome Back</small></p>
                                             <p class="d-block m-0 font-weight-bold">{{ Auth::user()->name }}</p>
                                         </div>
                                 </li>
@@ -52,7 +52,7 @@
                             <header id="top">
                                 <nav class="navbar navbar-light bg-white navbar-expand-lg navbar-fixed-top rounded-lg">
                                     <div class="container">
-                                        <a class="navbar-brand font-weight-bold" href="{{ route('home') }}">
+                                        <a class="navbar-brand text-muted font-weight-bold" href="{{ route('home') }}">
                                             {{ $title }}
                                         </a>
                                         <div class="ml-auto">

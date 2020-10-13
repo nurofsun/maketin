@@ -16,12 +16,11 @@ class PaymentSeeder extends Seeder
     {
         DB::table('payments')->insert([
             [
-                'id' => 1,
                 'student_id' => 1,
                 'amount' => 10000,
                 'month' => 1,
-                'created_at' => now(),
-                'updated_at' => now()
+                'created_at' => now()->subdays(5),
+                'updated_at' => now()->subdays(5)
             ]
         ]);
     }

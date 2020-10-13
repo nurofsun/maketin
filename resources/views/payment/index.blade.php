@@ -2,14 +2,6 @@
 
 @section('title', $title)
 
-@section('action')
-    <button class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#newPaymentModal">
-        <i class="fas fa-plus-circle"></i>
-        <span class="font-weight-bold">Pembayaran Baru</span>
-    </button>
-    @include('payment.create')
-@endsection
-
 @section('content')
     <section class="py-4">
         <div class="row">
@@ -22,7 +14,7 @@
                         <p class="mb-0">{{ $student->name }}</p>
                         <div class="d-flex align-items-center mt-2">
                             <div class="item mr-2">
-                                <button class="btn btn-primary btn-sm" disabled>
+                                <button class="px-3 btn btn-primary btn-sm rounded-pill" disabled>
                                     <span class="font-weight-bold">Level</span>
                                     <span class="badge badge-light">{{ $student->level }}</span>
                                 </button>
@@ -32,6 +24,11 @@
                 </section>
             </div>
             <div class="col-12 col-md-9">
+                <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#newPaymentModal">
+                    <i class="fas fa-plus-circle"></i>
+                    <span class="font-weight-bold">Pembayaran Baru</span>
+                </button>
+                @include('payment.create')
                 @include('payment.list')
             </div>
         </div>

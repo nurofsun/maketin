@@ -70,7 +70,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #555555;
   text-align: left;
   background-color: #f7f4ef;
 }
@@ -1828,7 +1828,7 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #212529;
+  color: #555555;
 }
 
 .table th,
@@ -1878,7 +1878,7 @@ pre code {
 }
 
 .table-hover tbody tr:hover {
-  color: #212529;
+  color: #555555;
   background-color: rgba(0, 0, 0, 0.075);
 }
 
@@ -2282,7 +2282,7 @@ select.form-control:focus::-ms-value {
   margin-bottom: 0;
   font-size: 1rem;
   line-height: 1.5;
-  color: #212529;
+  color: #555555;
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0;
@@ -2676,7 +2676,7 @@ textarea.form-control.is-invalid {
 .btn {
   display: inline-block;
   font-weight: 400;
-  color: #212529;
+  color: #555555;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -2699,7 +2699,7 @@ textarea.form-control.is-invalid {
 }
 
 .btn:hover {
-  color: #212529;
+  color: #555555;
   text-decoration: none;
 }
 
@@ -3476,7 +3476,7 @@ input[type=button].btn-block {
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
-  color: #212529;
+  color: #555555;
   text-align: left;
   list-style: none;
   background-color: #fff;
@@ -5806,7 +5806,7 @@ a.badge-dark.focus {
 }
 
 .list-group-item-action:active {
-  color: #212529;
+  color: #555555;
   background-color: #e9ecef;
 }
 
@@ -6745,7 +6745,7 @@ a.close.disabled {
 
 .popover-body {
   padding: 0.5rem 0.75rem;
-  color: #212529;
+  color: #555555;
 }
 
 .carousel {
@@ -10872,7 +10872,7 @@ a.text-dark:focus {
 }
 
 .text-body {
-  color: #212529 !important;
+  color: #555555 !important;
 }
 
 .text-muted {

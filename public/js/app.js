@@ -18111,9 +18111,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _payment_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./payment.js */ "./resources/js/payment.js");
+/* harmony import */ var _home_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home.js */ "./resources/js/home.js");
 
 
 
+
+
+/***/ }),
+
+/***/ "./resources/js/home.js":
+/*!******************************!*\
+  !*** ./resources/js/home.js ***!
+  \******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_rupiaf_js_dist_scripts_rupiaf_common_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/rupiaf.js/dist/scripts/rupiaf.common.js */ "./node_modules/rupiaf.js/dist/scripts/rupiaf.common.js");
+
+
+function getAmounts() {
+  return new Promise(function (resolve, reject) {
+    var amountElements = document.querySelectorAll('.amount');
+
+    if (amountElements.length !== 0) {
+      resolve(amountElements);
+    }
+
+    reject('Cannot find amount elements');
+  });
+}
+
+getAmounts().then(function (elements) {
+  elements.forEach(function (element) {
+    element.textContent = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common_js__WEBPACK_IMPORTED_MODULE_0__["default"](element.textContent).convert();
+  });
+});
 
 /***/ }),
 

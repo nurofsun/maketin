@@ -15,7 +15,7 @@
                             </span>
                             <div class="description text-center text-white">
                                 <p class="mb-0"><small>Santri</small></p>
-                                <p class="mb-0 font-weight-bold">{{ $total['students'] }}</p>
+                                <p class="mb-0 font-weight-bold">{{ $total_students }}</p>
                             </div>
                         </section>
                     </div>
@@ -28,17 +28,17 @@
                             <div class="row income-types">
                                 <div class="col-12 col-md-4">
                                     <small class="d-block mb-1">Selama ini</small>
-                                    <p class="mb-0 h5">{{ $total['payments'] }} IDR</p>
+                                    <p class="mb-0 h5"><span class="amount">{{ $payments['all'] }}</span> IDR</p>
                                 </div>
 
                                 <div class="col-12 col-md-4">
                                     <small class="d-block mb-1">Bulanan</small>
-                                    <p class="mb-0 h5">120.000 IDR</p>
+                                    <p class="mb-0 h5"><span class="amount">{{ $payments['monthly'] }}</span> IDR</p>
                                 </div>
                                 
                                 <div class="col-12 col-md-4">
-                                    <small class="d-block mb-1">Harian</small>
-                                    <p class="mb-0 h5">20.000 IDR</p>
+                                    <small class="d-block mb-1">Minggu Lalu</small>
+                                    <p class="mb-0 h5"><span class="amount">{{ $payments['weekly'] }}</span> IDR</p>
                                 </div>
                             </div>
                         </section>
@@ -49,7 +49,8 @@
             <div class="col-12 col-md-4">
                 <section class="log bg-white rounded-lg p-3">
                     <header class="border-bottom">
-                        <h5 class="mb-0 py-2">Log Aktivitas</h5>
+                        <h5 class="mb-0">Log Pembayaran</h5>
+                        <p class="text-muted font-weight-bold"><small>Hari ini</small></p>
                     </header>
                     <ul class="list-unstyled">
                         <li class="shadow-sm p-3 d-flex align-items-center my-2">
