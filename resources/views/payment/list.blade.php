@@ -18,7 +18,7 @@
                     <td class="amount">{{ $payment->amount }}</td>
                     <td>{{ $months[$payment->month - 1] }}</td>
                     <td>{{ $payment->year }}</td>
-                    <td>{{ $payment->created_at }}</td>
+                    <td>{{ $payment->created_at->format('d-m-Y') }}</td>
                     <td>
                         @if ($payment->status)
                             <span class="badge badge-light">
