@@ -4,6 +4,7 @@
             <th>#</th>
             <th>Nominal</th>
             <th>Bulan</th>
+            <th>Tahun</th>
             <th>Tanggal Pembayaran</th>
             <th>Status</th>
             <th>Opsi</th>
@@ -16,6 +17,7 @@
                     <th>{{ $loop->iteration }}</th>
                     <td class="amount">{{ $payment->amount }}</td>
                     <td>{{ $months[$payment->month - 1] }}</td>
+                    <td>{{ $payment->year }}</td>
                     <td>{{ $payment->created_at }}</td>
                     <td>
                         @if ($payment->status)

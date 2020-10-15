@@ -16,6 +16,7 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->integer('month');
+            $table->integer('year');
             $table->bigInteger('amount');
             $table->boolean('status')->default(false);
             $table->foreignId('student_id')

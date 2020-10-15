@@ -45,12 +45,16 @@ class PaymentController extends Controller
         $request->validate([
             'amount' => 'required',
             'month' => 'required',
-            'status' => 'required'
+            'status' => 'required',
+            'created_at' => 'required',
+            'year' => 'required'
         ]);
 
         Payment::create([
             'amount' => $request->input('amount'),
             'month' => $request->input('month'),
+            'year' => $request->input('year'),
+            'created_at' => $request->input('created_at'),
             'status' => $request->input('status'),
             'student_id' => $id
         ]);
@@ -63,6 +67,7 @@ class PaymentController extends Controller
         $request->validate([
             'edit_amount' => 'required',
             'edit_month' => 'required',
+            'edit_year' => 'required',
             'edit_status' => 'required'
         ]);
 
@@ -71,6 +76,7 @@ class PaymentController extends Controller
             ->update([
                 'amount' => $request->input('edit_amount'),
                 'month' => $request->input('edit_month'),
+                'year' => $request->input('edit_year'),
                 'status' => $request->input('edit_status')
             ]);
 

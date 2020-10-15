@@ -11,6 +11,14 @@
                     <input class="form-control amount-input" type="text" name="amount" placeholder="Nominal">
                 </div>
                 <div class="mb-2">
+                    <label>Tanggal Pembayaran</label>
+                    <input class="form-control" type="date" name="created_at">
+                </div>
+                <div class="mb-2">
+                    <label>Tahun Ajaran</label>
+                    <input class="form-control" type="number" name="year" step="1" min="{{ now()->year }}" max="2099" value="{{ now()->year }}">
+                </div>
+                <div class="mb-2">
                     <label>Pilih Bulan</label>
                     <select name="month" class="custom-select">
                         @foreach ($months as $month)

@@ -18,6 +18,7 @@ class PaymentSeeder extends Seeder
             [
                 'student_id' => 1,
                 'amount' => 10000,
+                'year' => 2020,
                 'month' => 1,
                 'created_at' => now()->subdays(5),
                 'updated_at' => now()->subdays(5)
