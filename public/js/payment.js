@@ -165,9 +165,9 @@ convertTablePaymentAmount().then(function (elements) {
   return console.log(error);
 });
 
-function convertInputAmountField() {
+function convertInputAmountField(element) {
   return new Promise(function (resolve, reject) {
-    var field = document.querySelector('.amount-input');
+    var field = document.querySelector(element);
 
     if (field) {
       resolve(field);
@@ -177,7 +177,8 @@ function convertInputAmountField() {
   });
 }
 
-convertInputAmountField().then(function (element) {
+convertInputAmountField('.amount-input').then(function (element) {
+  element.value = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](element.value).convert();
   element.addEventListener('keyup', function (event) {
     var rupiah = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](event.target.value);
     event.target.value = rupiah.convert();
@@ -186,10 +187,10 @@ convertInputAmountField().then(function (element) {
   console.log(err);
 });
 
-function convertToNumberAmountField() {
+function convertToNumberAmountField(formElement, inputElement) {
   return new Promise(function (resolve, reject) {
-    var formPayment = document.querySelector('#newPaymentModal');
-    var amountInput = document.querySelector('.amount-input');
+    var formPayment = document.querySelector(formElement);
+    var amountInput = document.querySelector(inputElement);
 
     if (formPayment && amountInput) {
       resolve({
@@ -202,13 +203,33 @@ function convertToNumberAmountField() {
   });
 }
 
-convertToNumberAmountField().then(function (elements) {
-  elements.formPayment.addEventListener('submit', function () {
-    elements.amountInput.value = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](elements.amountInput.value).clean();
+convertToNumberAmountField('#newPaymentModal', '.amount-input').then(function (element) {
+  element.formPayment.addEventListener('submit', function () {
+    element.amountInput.value = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](element.amountInput.value).clean();
   });
 })["catch"](function (err) {
   return console.log(err);
 });
+var editPaymentModals = document.querySelectorAll('.edit-payment-modal');
+
+for (var indexEditPaymentModal = 1; indexEditPaymentModal <= editPaymentModals.length; indexEditPaymentModal++) {
+  convertInputAmountField(".edit-amount-input-".concat(indexEditPaymentModal)).then(function (element) {
+    element.value = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](element.value).convert();
+    element.addEventListener('keyup', function (event) {
+      var rupiah = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](event.target.value);
+      event.target.value = rupiah.convert();
+    });
+  })["catch"](function (err) {
+    console.log(err);
+  });
+  convertToNumberAmountField("#editPaymentModal-".concat(indexEditPaymentModal), ".edit-amount-input-".concat(indexEditPaymentModal)).then(function (element) {
+    element.formPayment.addEventListener('submit', function () {
+      element.amountInput.value = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](element.amountInput.value).clean();
+    });
+  })["catch"](function (err) {
+    return console.log(err);
+  });
+}
 
 /***/ }),
 

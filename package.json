@@ -20,17 +20,9 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "bootstrap": "^4.5.2",
-        "bootstrap-icons": "^1.0.0",
-        "datatables.net-bs4": "^1.10.22",
-        "datatables.net-buttons-bs4": "^1.6.5",
-        "datatables.net-responsive-bs4": "^2.2.6",
+        "bootstrap": "^5.0.0-alpha2",
         "exceljs": "^4.1.1",
-        "jquery": "^3.5.1",
-        "materialize-css": "^1.0.0-rc.2",
         "popper.js": "^1.16.1",
-        "rupiaf.js": "^1.0.0",
-        "simple-datatables": "^2.1.13",
-        "table2excel.js": "^1.0.0"
+        "rupiaf.js": "^1.0.0"
     }
 }

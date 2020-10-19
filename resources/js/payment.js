@@ -19,9 +19,9 @@ convertTablePaymentAmount()
     })
     .catch(error => console.log(error));
 
-function convertInputAmountField() {
+function convertInputAmountField(element) {
     return new Promise((resolve, reject) => {
-        let field = document.querySelector('.amount-input');
+        let field = document.querySelector(element);
         if (field) {
             resolve(field)
         }
@@ -29,8 +29,9 @@ function convertInputAmountField() {
     })
 }
 
-convertInputAmountField()
+convertInputAmountField('.amount-input')
     .then(element => {
+        element.value = new Rupiaf(element.value).convert()
         element.addEventListener('keyup', function(event) {
             let rupiah = new Rupiaf(event.target.value);
             event.target.value = rupiah.convert();
@@ -41,10 +42,11 @@ convertInputAmountField()
     });
 
 
-function convertToNumberAmountField() {
+
+function convertToNumberAmountField(formElement, inputElement) {
     return new Promise((resolve, reject) => {
-        let formPayment = document.querySelector('#newPaymentModal');
-        let amountInput = document.querySelector('.amount-input');
+        let formPayment = document.querySelector(formElement);
+        let amountInput = document.querySelector(inputElement);
 
         if (formPayment && amountInput) {
             resolve({formPayment, amountInput})
@@ -53,10 +55,34 @@ function convertToNumberAmountField() {
     })
 }
 
-convertToNumberAmountField()
-    .then(elements => {
-        elements.formPayment.addEventListener('submit', function() {
-            elements.amountInput.value = new Rupiaf(elements.amountInput.value).clean();
+convertToNumberAmountField('#newPaymentModal', '.amount-input')
+    .then(element => {
+        element.formPayment.addEventListener('submit', function() {
+            element.amountInput.value = new Rupiaf(element.amountInput.value).clean();
         });
     })
     .catch(err => console.log(err));
+
+
+let editPaymentModals = document.querySelectorAll('.edit-payment-modal')
+
+for (let indexEditPaymentModal = 1; indexEditPaymentModal <= editPaymentModals.length; indexEditPaymentModal++) {
+    convertInputAmountField(`.edit-amount-input-${indexEditPaymentModal}`)
+        .then(element => {
+            element.value = new Rupiaf(element.value).convert()
+            element.addEventListener('keyup', function(event) {
+                let rupiah = new Rupiaf(event.target.value);
+                event.target.value = rupiah.convert();
+            });
+        })
+        .catch(err => {
+            console.log(err)
+        });
+    convertToNumberAmountField(`#editPaymentModal-${indexEditPaymentModal}`,`.edit-amount-input-${indexEditPaymentModal}`)
+        .then(element => {
+            element.formPayment.addEventListener('submit', function() {
+                element.amountInput.value = new Rupiaf(element.amountInput.value).clean();
+            });
+        })
+        .catch(err => console.log(err));
+}

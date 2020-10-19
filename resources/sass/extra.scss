@@ -1,6 +1,9 @@
-.nav-link {
-  transition: .5s;
-  font-weight: bold;
+.menu-container {
+  left: 0px;
+}
+#menu {
+  left: 0px;
+  border-radius: 0px 16px 16px 0px;
 }
 label, .label {
   font-weight: bold;

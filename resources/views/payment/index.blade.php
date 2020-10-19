@@ -24,7 +24,7 @@
                 </section>
             </div>
             <div class="col-12 col-md-9">
-                <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#newPaymentModal">
+                <button class="btn btn-light text-primary mb-3" data-toggle="modal" data-target="#newPaymentModal">
                     <i class="fas fa-plus-circle"></i>
                     <span class="font-weight-bold">Pembayaran Baru</span>
                 </button>
@@ -33,5 +33,7 @@
             </div>
         </div>
     </section>
+    @push('scripts')
     <script src="{{ @asset('js/payment.js') }}"></script>
+    @endpush
 @endsection

@@ -21,12 +21,12 @@
                     <td>{{ $payment->created_at->format('d-m-Y') }}</td>
                     <td>
                         @if ($payment->status)
-                            <span class="badge badge-light">
+                            <span class="badge badge-light text-success">
                                 <i class="fas fa-check-circle"></i>
                                 Lunas
                             </span>
                         @else
-                            <span class="badge badge-danger">
+                            <span class="badge badge-light text-danger">
                                 <i class="fas fa-times"></i>
                                 Belum Lunas
                             </span>
@@ -44,7 +44,7 @@
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </form>
-                            <button data-toggle="modal" data-target="#editPaymentModal-{{ $payment->id }}" class="btn btn-sm btn-light">
+                            <button data-toggle="modal" data-target="#editPaymentModal-{{ $loop->iteration }}" class="btn btn-sm btn-light">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
                             @include('payment.edit')

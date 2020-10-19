@@ -1,8 +1,16 @@
-$body-bg: #f7f4ef;
-$body-color: #555555;
+// options
 $enable-gradients: true;
 $enable-responsive-font-sizes: true;
 
+// colors
 $theme-colors: (
   "primary": #0cce6b,
 );
+
+// body
+$body-bg: #f7f4ef;
+
+// nav
+$nav-link-color: #afafaf;
+$nav-link-hover-color: #232323;
+
