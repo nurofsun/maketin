@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/rupiaf.js/dist/scripts/rupiaf.common.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/rupiaf.js/dist/scripts/rupiaf.common.js ***!
-  \**************************************************************/
+/***/ "./node_modules/rupiafjs/src/js/rupiaf.amd.js":
+/*!****************************************************!*\
+  !*** ./node_modules/rupiafjs/src/js/rupiaf.amd.js ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -97,38 +97,40 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Rupiaf; });
 class Rupiaf {
-    constructor(money) {
-        this.money = money;
+    constructor(number) {
+        this.number = number;
     }
     convert() {
-        this.money = this.money.toString().replace(/\./g, '');
-        let step = 3, sisa = this.money.length % step, counter = Math.floor(this.money.length / step);
-        this.money = this.money.split('');
+        this.number = this.number.toString().replace(/\./g, '');
+        let step = 3,
+            sisa = this.number.length % step,
+            counter = Math.floor(this.number.length / step);
+        this.number = this.number.split('');
         if (sisa == 0) {
             if (counter != 1) {
-                for (let i = 0; i < counter; i++) {
-                    this.money.splice(this.money.length - (step++), 0, '.');
+                for (let i=0; i < counter; i++) {
+                    this.number.splice(this.number.length - (step++),0,'.')
                     step += 3;
                 }
-                this.money = this.money.join('');
-                return this.money.substring(1);
+                this.number = this.number.join('');
+                return this.number.substring(1)
             }
-            return this.money.join('');
-        }
-        else {
-            for (let i = 0; i < counter; i++) {
-                this.money.splice(this.money.length - (step++), 0, '.');
+            return this.number.join('');
+        } else {
+            for (let i=0; i < counter; i++) {
+                this.number.splice(this.number.length - (step++),0,'.')
                 step += 3;
             }
-            return this.money.join('');
+        return this.number.join('');
         }
     }
     clean() {
-        this.money = this.money.replace(/\./g, '');
-        return parseInt(this.money);
+        this.number = this.number.replace(/\./g,'');
+        return parseInt(this.number)
     }
 }
-//# sourceMappingURL=rupiaf.common.js.map
+
+
 
 /***/ }),
 
@@ -141,7 +143,7 @@ class Rupiaf {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/rupiaf.js/dist/scripts/rupiaf.common */ "./node_modules/rupiaf.js/dist/scripts/rupiaf.common.js");
+/* harmony import */ var rupiafjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rupiafjs */ "./node_modules/rupiafjs/src/js/rupiaf.amd.js");
 
 
 function convertTablePaymentAmount() {
@@ -158,7 +160,7 @@ function convertTablePaymentAmount() {
 
 convertTablePaymentAmount().then(function (elements) {
   elements.forEach(function (element) {
-    var rupiah = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](element.textContent);
+    var rupiah = new rupiafjs__WEBPACK_IMPORTED_MODULE_0__["default"](element.textContent);
     element.textContent = rupiah.convert();
   });
 })["catch"](function (error) {
@@ -178,9 +180,9 @@ function convertInputAmountField(element) {
 }
 
 convertInputAmountField('.amount-input').then(function (element) {
-  element.value = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](element.value).convert();
+  element.value = new rupiafjs__WEBPACK_IMPORTED_MODULE_0__["default"](element.value).convert();
   element.addEventListener('keyup', function (event) {
-    var rupiah = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](event.target.value);
+    var rupiah = new rupiafjs__WEBPACK_IMPORTED_MODULE_0__["default"](event.target.value);
     event.target.value = rupiah.convert();
   });
 })["catch"](function (err) {
@@ -205,7 +207,7 @@ function convertToNumberAmountField(formElement, inputElement) {
 
 convertToNumberAmountField('#newPaymentModal', '.amount-input').then(function (element) {
   element.formPayment.addEventListener('submit', function () {
-    element.amountInput.value = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](element.amountInput.value).clean();
+    element.amountInput.value = new rupiafjs__WEBPACK_IMPORTED_MODULE_0__["default"](element.amountInput.value).clean();
   });
 })["catch"](function (err) {
   return console.log(err);
@@ -214,9 +216,9 @@ var editPaymentModals = document.querySelectorAll('.edit-payment-modal');
 
 for (var indexEditPaymentModal = 1; indexEditPaymentModal <= editPaymentModals.length; indexEditPaymentModal++) {
   convertInputAmountField(".edit-amount-input-".concat(indexEditPaymentModal)).then(function (element) {
-    element.value = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](element.value).convert();
+    element.value = new rupiafjs__WEBPACK_IMPORTED_MODULE_0__["default"](element.value).convert();
     element.addEventListener('keyup', function (event) {
-      var rupiah = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](event.target.value);
+      var rupiah = new rupiafjs__WEBPACK_IMPORTED_MODULE_0__["default"](event.target.value);
       event.target.value = rupiah.convert();
     });
   })["catch"](function (err) {
@@ -224,7 +226,7 @@ for (var indexEditPaymentModal = 1; indexEditPaymentModal <= editPaymentModals.l
   });
   convertToNumberAmountField("#editPaymentModal-".concat(indexEditPaymentModal), ".edit-amount-input-".concat(indexEditPaymentModal)).then(function (element) {
     element.formPayment.addEventListener('submit', function () {
-      element.amountInput.value = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common__WEBPACK_IMPORTED_MODULE_0__["default"](element.amountInput.value).clean();
+      element.amountInput.value = new rupiafjs__WEBPACK_IMPORTED_MODULE_0__["default"](element.amountInput.value).clean();
     });
   })["catch"](function (err) {
     return console.log(err);

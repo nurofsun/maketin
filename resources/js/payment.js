@@ -1,4 +1,4 @@
-import Rupiaf from '../../node_modules/rupiaf.js/dist/scripts/rupiaf.common';
+import Rupiaf from 'rupiafjs';
 
 function convertTablePaymentAmount() {
     return new Promise((resolve, reject) => {

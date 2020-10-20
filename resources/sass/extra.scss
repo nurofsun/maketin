@@ -5,6 +5,24 @@
   left: 0px;
   border-radius: 0px 16px 16px 0px;
 }
+.bg-gradient-green {
+  background-color: map-get($theme-colors, 'primary');
+  background-image: linear-gradient(45deg, map-get($theme-colors, 'primary'), lighten(map-get($theme-colors,'primary'), 30%));
+}
+
+.bg-gradient-light {
+  background-color: #08AEEA;
+  background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+}
+.bg-gradient-red {
+  background-color: #FF9A8B;
+  background-image: linear-gradient(135deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+}
+.bg-gradient-purple-dark {
+  background-color: #FF3CAC;
+  background-image: linear-gradient(141deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+}
+
 label, .label {
   font-weight: bold;
   font-size: 12pt;

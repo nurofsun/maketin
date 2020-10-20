@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/rupiaf.js/dist/scripts/rupiaf.common.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/rupiaf.js/dist/scripts/rupiaf.common.js ***!
-  \**************************************************************/
+/***/ "./node_modules/rupiafjs/src/js/rupiaf.amd.js":
+/*!****************************************************!*\
+  !*** ./node_modules/rupiafjs/src/js/rupiaf.amd.js ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -97,38 +97,40 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Rupiaf; });
 class Rupiaf {
-    constructor(money) {
-        this.money = money;
+    constructor(number) {
+        this.number = number;
     }
     convert() {
-        this.money = this.money.toString().replace(/\./g, '');
-        let step = 3, sisa = this.money.length % step, counter = Math.floor(this.money.length / step);
-        this.money = this.money.split('');
+        this.number = this.number.toString().replace(/\./g, '');
+        let step = 3,
+            sisa = this.number.length % step,
+            counter = Math.floor(this.number.length / step);
+        this.number = this.number.split('');
         if (sisa == 0) {
             if (counter != 1) {
-                for (let i = 0; i < counter; i++) {
-                    this.money.splice(this.money.length - (step++), 0, '.');
+                for (let i=0; i < counter; i++) {
+                    this.number.splice(this.number.length - (step++),0,'.')
                     step += 3;
                 }
-                this.money = this.money.join('');
-                return this.money.substring(1);
+                this.number = this.number.join('');
+                return this.number.substring(1)
             }
-            return this.money.join('');
-        }
-        else {
-            for (let i = 0; i < counter; i++) {
-                this.money.splice(this.money.length - (step++), 0, '.');
+            return this.number.join('');
+        } else {
+            for (let i=0; i < counter; i++) {
+                this.number.splice(this.number.length - (step++),0,'.')
                 step += 3;
             }
-            return this.money.join('');
+        return this.number.join('');
         }
     }
     clean() {
-        this.money = this.money.replace(/\./g, '');
-        return parseInt(this.money);
+        this.number = this.number.replace(/\./g,'');
+        return parseInt(this.number)
     }
 }
-//# sourceMappingURL=rupiaf.common.js.map
+
+
 
 /***/ }),
 
@@ -141,7 +143,7 @@ class Rupiaf {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_rupiaf_js_dist_scripts_rupiaf_common_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/rupiaf.js/dist/scripts/rupiaf.common.js */ "./node_modules/rupiaf.js/dist/scripts/rupiaf.common.js");
+/* harmony import */ var rupiafjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rupiafjs */ "./node_modules/rupiafjs/src/js/rupiaf.amd.js");
 
 
 function getAmounts() {
@@ -158,7 +160,7 @@ function getAmounts() {
 
 getAmounts().then(function (elements) {
   elements.forEach(function (element) {
-    element.textContent = new _node_modules_rupiaf_js_dist_scripts_rupiaf_common_js__WEBPACK_IMPORTED_MODULE_0__["default"](element.textContent).convert();
+    element.textContent = new rupiafjs__WEBPACK_IMPORTED_MODULE_0__["default"](element.textContent).convert();
   });
 });
 

@@ -1,4 +1,4 @@
-import Rupiaf from '../../node_modules/rupiaf.js/dist/scripts/rupiaf.common.js';
+import Rupiaf from 'rupiafjs';
 
 function getAmounts() {
     return new Promise( (resolve, reject) => {

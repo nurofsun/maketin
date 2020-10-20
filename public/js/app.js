@@ -106,7 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab", function() { return Tab; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Toast", function() { return Toast; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tooltip", function() { return Tooltip; });
-/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
+/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
 /*!
   * Bootstrap v5.0.0-alpha2 (https://getbootstrap.com/)
   * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
@@ -2293,7 +2293,7 @@ var Dropdown = /*#__PURE__*/function () {
 
 
     if (!this._inNavbar) {
-      if (typeof popper_js__WEBPACK_IMPORTED_MODULE_1__["default"] === 'undefined') {
+      if (typeof popper_js__WEBPACK_IMPORTED_MODULE_0__["default"] === 'undefined') {
         throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org)');
       }
 
@@ -2316,7 +2316,7 @@ var Dropdown = /*#__PURE__*/function () {
         parent.classList.add(CLASS_NAME_POSITION_STATIC);
       }
 
-      this._popper = new popper_js__WEBPACK_IMPORTED_MODULE_1__["default"](referenceElement, this._menu, this._getPopperConfig());
+      this._popper = new popper_js__WEBPACK_IMPORTED_MODULE_0__["default"](referenceElement, this._menu, this._getPopperConfig());
     } // If this is a touch-enabled device we add extra
     // empty mouseover listeners to the body's immediate children;
     // only needed because of broken event delegation on iOS
@@ -3523,7 +3523,7 @@ var TRIGGER_MANUAL = 'manual';
 
 var Tooltip = /*#__PURE__*/function () {
   function Tooltip(element, config) {
-    if (typeof popper_js__WEBPACK_IMPORTED_MODULE_1__["default"] === 'undefined') {
+    if (typeof popper_js__WEBPACK_IMPORTED_MODULE_0__["default"] === 'undefined') {
       throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org)');
     } // private
 
@@ -3657,7 +3657,7 @@ var Tooltip = /*#__PURE__*/function () {
       }
 
       EventHandler.trigger(this.element, this.constructor.Event.INSERTED);
-      this._popper = new popper_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.element, tip, this._getPopperConfig(attachment));
+      this._popper = new popper_js__WEBPACK_IMPORTED_MODULE_0__["default"](this.element, tip, this._getPopperConfig(attachment));
       tip.classList.add(CLASS_NAME_SHOW$3); // If this is a touch-enabled device we add extra
       // empty mouseover listeners to the body's immediate children;
       // only needed because of broken event delegation on iOS
