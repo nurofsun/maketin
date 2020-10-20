@@ -3,9 +3,7 @@
         <thead>
             <tr class="align-middle">
                 <th scope="col">
-                    <div class="input-group input-group-sm">
-                        <input type="text" class="form-control" placeholder="Cari sesuatu...">
-                    </div>
+                    #
                 </th>
                 <th scope="col">Level</th>
                 <th scope="col">Jenis Kelamin</th>
@@ -15,13 +13,14 @@
             @foreach( $students as $student)
                 <tr class="border-bottom">
                     <td>
-                        <div class="d-flex p-2 align-items-center">
-                            <img width="48" class="mr-2 rounded-pill" src="{{ asset('images/nurofsun.jpg') }}" alt="">
+                        <div class="d-flex py-2 align-items-center">
+                            @if ($student->avatar)
+                                <img width="32" class="mr-2 rounded-pill" src="{{ asset(Storage::url($student->avatar)) }}" alt="{{ $student->name }}">
+                            @else
+                                <img width="32" class="mr-2 rounded-pill" src="{{ asset('images/nurofsun.jpg') }}" alt="{{ $student->name }}">
+                            @endif
                             <div>
                                 <p class="name mb-0 font-weight-bold">{{ $student->name }}</p>
-                                <p class="gender mb-0">
-                                    no contact information added.
-                                </p>
                             </div>
                         </div>
                     </td>

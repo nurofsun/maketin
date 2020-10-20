@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Student;
 
 class StudentController extends Controller
@@ -18,7 +19,10 @@ class StudentController extends Controller
             'level' => 'required'
         ]);
 
+        $avatar_path = $request->file('avatar')->storePublicly('public/avatars');
+
         Student::create([
+            'avatar' => $avatar_path,
             'name' => $request->input('name'),
             'gender' => $request->input('gender'),
             'level' => $request->input('level')
@@ -46,6 +50,9 @@ class StudentController extends Controller
     }
 
     public function destroy($id) {
+        $student = Student::where('id', $id)->first();
+        Storage::delete($student->avatar);
+
         Student::destroy($id);
 
         return redirect()->back(); 
