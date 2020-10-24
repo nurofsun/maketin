@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <header class="modal-header">
-                <h3 class="modal-title mb-0">Santri Baru</h3>
+                <h5 class="modal-title mb-0">Formulir Pendaftaran Santri</h5>
             </header>
             <div class="modal-body">
                 @csrf                            
@@ -21,6 +21,10 @@
                             <span class="form-file-button">Browse</span>
                         </label>
                     </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="userid">userID</label>
+                    <input class="form-control" id="userid" type="text" placeholder="userID" name="id">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Nama Lengkap</label>

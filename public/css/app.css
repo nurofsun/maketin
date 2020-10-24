@@ -3070,7 +3070,7 @@ textarea.form-control.is-invalid {
 
 .btn {
   display: inline-block;
-  font-weight: 400;
+  font-weight: bold;
   line-height: 1.5;
   color: #777777;
   text-align: center;

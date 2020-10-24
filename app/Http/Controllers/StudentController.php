@@ -8,10 +8,6 @@ use App\Models\Student;
 
 class StudentController extends Controller
 {
-    public function index() {
-        return view('student.index', [ 'students' => Student::all(), 'title' => 'Santri' ]);
-    }
-
     public function store(Request $request) {
         $request->validate([
             'name' => 'required|max:255',
@@ -33,6 +29,7 @@ class StudentController extends Controller
 
     public function update(Request $request, $id) {
         $request->validate([
+            'edit_id' => 'required',
             'edit_name' => 'required|max:255',
             'edit_gender' => 'required',
             'edit_level' => 'required'
@@ -41,6 +38,7 @@ class StudentController extends Controller
 
         Student::where('id', $id)
             ->update([ 
+                'id' => $request->input('edit_id'),
                 'name' => $request->input('edit_name'),
                 'gender' => $request->input('edit_gender'),
                 'level' => $request->input('edit_level')
