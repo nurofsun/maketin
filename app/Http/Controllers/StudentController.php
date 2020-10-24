@@ -57,35 +57,4 @@ class StudentController extends Controller
 
         return redirect()->back(); 
     }
-
-    /**
-     * @method get all payments history of student 
-     * by request query student_id
-     */
-    public function payment_history(Request $request, $id) 
-    {
-        $student = Student::find($id);
-        $months = [
-            'Januari',
-            'Februari',
-            'Maret',
-            'April',
-            'Mei',
-            'Juni',
-            'Juli',
-            'Agustus',
-            'September',
-            'Oktober',
-            'November',
-            'Desember'
-        ];
-        return view(
-            'student.payment', 
-            [
-                'months' => $months,
-                'student' => $student, 
-                'title' => 'Riwayat Pembayaran'
-            ]
-        );
-    }
 }

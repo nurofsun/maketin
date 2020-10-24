@@ -233,6 +233,26 @@ for (var indexEditPaymentModal = 1; indexEditPaymentModal <= editPaymentModals.l
   });
 }
 
+function getAmountColumn() {
+  return new Promise(function (resolve, reject) {
+    var amountColumns = document.querySelectorAll('.amount');
+
+    if (amountColumns) {
+      resolve(amountColumns);
+    }
+
+    reject(new Error('Cannot find amount column'));
+  });
+}
+
+getAmountColumn().then(function (elements) {
+  elements.forEach(function (element) {
+    element.textContent = new rupiafjs__WEBPACK_IMPORTED_MODULE_0__["default"](element.textContent).convert();
+  });
+})["catch"](function (err) {
+  return console.log(err);
+});
+
 /***/ }),
 
 /***/ 2:

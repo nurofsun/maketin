@@ -15,9 +15,9 @@
                     <td>
                         <div class="d-flex py-2 align-items-center">
                             @if ($student->avatar)
-                                <img width="32" class="mr-2 rounded-pill" src="{{ asset(Storage::url($student->avatar)) }}" alt="{{ $student->name }}">
+                                <img class="avatar mr-2" src="{{ asset(Storage::url($student->avatar)) }}" alt="{{ $student->name }}">
                             @else
-                                <img width="32" class="mr-2 rounded-pill" src="{{ asset('images/nurofsun.jpg') }}" alt="{{ $student->name }}">
+                                <img class="avatar mr-2" src="{{ asset('images/nurofsun.jpg') }}" alt="{{ $student->name }}">
                             @endif
                             <div>
                                 <p class="name mb-0 font-weight-bold">{{ $student->name }}</p>

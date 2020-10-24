@@ -8,19 +8,17 @@
         <script src="{{ asset('fontawesome/js/all.min.js') }}"></script>
     </head>
     <body>
-        <div id="app" class="container-fluid">
-            <div class="row">
-                <div class="col-2">
-                    @include('components.menu')
+        @include ('components.navbar')
+        <main id="app" class="container">
+            <section class="row">
+                <div class="col-8">
+                    @yield('content')
                 </div>
-                <div class="col-10">
-                    @include('components.navbar')
-                    <main>
-                        @yield('content')
-                    </main>
-                </div>
-            </div>
-        </div>
+                <aside class="col-4">
+                    @yield('sidebar')
+                </aside>
+            </section>
+        </main>
         <script src="{{ asset('js/app.js') }}"></script>
         @stack('scripts')
     </body>

@@ -86,3 +86,21 @@ for (let indexEditPaymentModal = 1; indexEditPaymentModal <= editPaymentModals.l
         })
         .catch(err => console.log(err));
 }
+
+function getAmountColumn() {
+    return new Promise((resolve, reject) => {
+        let amountColumns = document.querySelectorAll('.amount');
+        if (amountColumns) {
+            resolve(amountColumns);
+        }
+        reject(new Error('Cannot find amount column'));
+    })
+}
+
+getAmountColumn()
+    .then(elements => {
+        elements.forEach(element => {
+            element.textContent = new Rupiaf(element.textContent).convert();
+        })
+    })
+    .catch(err => console.log(err));

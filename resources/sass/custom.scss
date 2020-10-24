@@ -2,15 +2,15 @@
 $enable-gradients: true;
 $enable-responsive-font-sizes: true;
 
-// colors
-$theme-colors: (
-  "primary": #276FBF,
-);
-
-// body
-$body-bg: #F6F4F3;
+$body-bg: #f2f2f2;
+$body-color: #777777;
 
 // nav
 $nav-link-color: #afafaf;
 $nav-link-hover-color: #232323;
+
+// table
+$table-color: #eaeaea;
+$table-cell-padding-y: 1rem;
+$table-cell-padding-x: 1rem;
 

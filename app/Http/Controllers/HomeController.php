@@ -8,9 +8,19 @@ use App\Models\Payment;
 
 class HomeController extends Controller
 {
+    public function get_student_list()
+    {
+        return Student::all();
+    }
     public function get_total_student()
     {
         return Student::all()->count(); 
+    }
+
+    public function get_payment_today()
+    {
+        return Payment::all()->where('status', true)
+            ->where('created_at', today());
     }
 
     public function get_total_payment_all()
@@ -41,10 +51,12 @@ class HomeController extends Controller
         $data = [
             'title' => 'Dashboard',
             'total_students' => $this->get_total_student(),
+            'students' => $this->get_student_list(),
             'payments' => [
                 'all' => $this->get_total_payment_all(),
                 'monthly' => $this->get_total_payment_monthly(),
-                'weekly' => $this->get_total_payment_last_week()
+                'weekly' => $this->get_total_payment_last_week(),
+                'today' => $this->get_payment_today()
             ]
         ];
         return view('home', $data);

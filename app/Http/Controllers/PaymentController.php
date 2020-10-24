@@ -14,6 +14,10 @@ class PaymentController extends Controller
 
         $payments = Student::find($id)->payments()->orderBy('month', 'asc')->get();
 
+        $payments_completed_length = Student::find($id)->payments()->where('status', true)->count();
+
+        $payments_uncompleted_length = Student::find($id)->payments()->where('status', false)->count();
+
         $months = [
             'Januari',
             'Februari',
@@ -35,6 +39,8 @@ class PaymentController extends Controller
                 'months' => $months,
                 'student' => $student, 
                 'payments' => $payments,
+                'payments_completed_length' => $payments_completed_length,
+                'payments_uncompleted_length' => $payments_uncompleted_length,
                 'title' => 'Riwayat Pembayaran'
             ]
         );
@@ -93,4 +99,5 @@ class PaymentController extends Controller
             ->delete();
         return redirect()->back();
     }
+
 }
