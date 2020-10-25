@@ -1,4 +1,4 @@
-<nav class="menu-container vh-100 position-fixed">
+<nav class="menu-container vh-100 position-fixed" style="top: 50px;">
     <ul id="" 
         role="navigation" 
         aria-label="Main Navigation" 
@@ -12,7 +12,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('student.list') }}">
+            <a class="nav-link" href="{{ route('student.index') }}">
                 <span class="icon mr-2">
                     <i class="fas fa-users"></i>
                 </span>

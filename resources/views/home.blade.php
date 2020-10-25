@@ -3,12 +3,16 @@
 @section('title', $title)
 
 @section('content')
-    @include('section.income')
-    @include('section.student')
-@endsection
-
-@section('sidebar')
-    @include('section.log')
+    <section>
+        <div class="row">
+            <div class="col-12 col-md-8">
+                @include('section.income')
+            </div>
+            <div class="col-12 col-md-4">
+                @include('section.log')
+            </div>
+        </div>
+    </section>
 @endsection
 
 @push('scripts')

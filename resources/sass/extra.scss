@@ -43,3 +43,14 @@ img.avatar {
 .log-pembayaran li:last-child {
   margin-bottom: 0px;
 }
+
+@each $color, $value in $theme-colors {
+  .btn-light-#{$color} {
+    background-color: transparentize($value,0.9);
+    color: $value;
+  }
+  .btn-light-#{$color}:hover {
+    background-color: transparentize($value,0.95);
+    color: $value;
+  }
+}

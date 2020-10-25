@@ -1,7 +1,7 @@
-<header id="top">
-    <nav class="navbar navbar-expand-lg bg-white navbar-light rounded-lg">
+<header id="top" class="position-fixed w-100" style="z-index: 100">
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm">
         <div class="container-fluid">
-        <a class="navbar-brand font-weight-bold text-muted" href="#">
+        <a class="navbar-brand font-weight-bold text-muted" href="{{ route('home') }}">
             <img width="32" src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name') }}">
         </a>
         <div class="dropdown nav-item ml-auto">
