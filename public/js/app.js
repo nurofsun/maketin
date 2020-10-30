@@ -18073,6 +18073,28 @@ __webpack_require__.r(__webpack_exports__);
 // You can specify which plugins you need
 
 
+function getNavLinks() {
+  return new Promise(function (resolve, reject) {
+    var elements = document.querySelectorAll('.nav-link');
+
+    if (elements.length != 0) {
+      resolve(elements);
+    }
+
+    reject(new Error('Cannot find nav link elements'));
+  });
+}
+
+getNavLinks().then(function (elements) {
+  elements.forEach(function (element) {
+    if (element.pathname === window.location.pathname && !element.hasAttribute('data-toggle')) {
+      element.classList.add('active');
+    }
+  });
+})["catch"](function (err) {
+  return console.log(err);
+});
+
 /***/ }),
 
 /***/ "./resources/sass/app.scss":

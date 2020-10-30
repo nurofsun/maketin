@@ -1,8 +1,11 @@
 import Rupiaf from 'rupiafjs';
+import $ from 'jquery';
+import 'datatables.net-bs4';
+import '../../node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css';
 
 function convertTablePaymentAmount() {
     return new Promise((resolve, reject) => {
-        let columnAmounts = document.querySelectorAll('#payments .amount');
+        let columnAmounts = document.querySelectorAll('#payment .amount');
         if (columnAmounts) {
             resolve(columnAmounts);
         }
@@ -104,3 +107,7 @@ getAmountColumn()
         })
     })
     .catch(err => console.log(err));
+
+$(document).ready(function() {
+    $('table').DataTable();
+})

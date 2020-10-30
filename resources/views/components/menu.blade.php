@@ -2,7 +2,7 @@
     <ul id="" 
         role="navigation" 
         aria-label="Main Navigation" 
-        class="nav nav-pills flex-column bg-white py-3 px-3 vh-100 shadow-sm nav-piils" style="width: 225px;">
+        class="nav nav-pills flex-column bg-white py-4 px-3 vh-100 shadow-sm nav-piils" style="width: 225px;">
         <li class="nav-item">
             <a class="nav-link" href="{{ route('home') }}">
                 <span class="icon mr-2">
@@ -27,7 +27,7 @@
                 <span class="label">Pembayaran</span>
             </a>
             <div class="collapse ml-4" id="typePayment">
-                <form action="{{ route('payment.show') }}" method="GET">
+                <form action="{{ route('payment.show') }}" method="GET" class="nav-item">
                     @csrf
                     <input type="hidden" name="type" value="monthly">
                     <button class="nav-link btn btn-link btn-sm d-block w-100 text-left outline-none shadow-none">Bulanan</button>
