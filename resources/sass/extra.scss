@@ -49,3 +49,17 @@ img.avatar {
     color: $value;
   }
 }
+
+.nav {
+  .nav-link {
+    color: transparentize($dark,0.3);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11pt;
+  }
+}
+
+.income-item {
+  border-bottom: 5px solid $primary;
+}
+

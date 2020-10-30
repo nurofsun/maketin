@@ -4,24 +4,24 @@
     </h3>
     <div class="row">
         <div class="col-4">
-            <div class="bg-gradient-green p-3 rounded-lg text-white">
-                <p class="mb-0">Selama ini</p>
+            <div class="bg-white shadow-sm p-3 rounded-lg income-item">
+                <p class="mb-0 font-weight-light">Selama ini</p>
                 <p class="h3 mb-0 font-weight-bold">
                 <span class="amount">{{ $payments['all'] }}</span> IDR
                 </p>
             </div>
         </div>
         <div class="col-4">
-            <div class="bg-gradient-red p-3 rounded-lg text-white">
-                <p class="mb-0">Bulan ini</p>
+            <div class="bg-white p-3 rounded-lg shadow-sm income-item">
+                <p class="mb-0 font-weight-light">Bulan ini</p>
                 <p class="h3 mb-0 font-weight-bold">
                 <span class="amount">{{ $payments['monthly'] }}</span> IDR
                 </p>
             </div>
         </div>
         <div class="col-4">
-            <div class="bg-gradient-purple-dark p-3 rounded-lg text-white">
-                <p class="mb-0">Minggu Lalu</p>
+            <div class="bg-white p-3 rounded-lg shadow-sm income-item">
+                <p class="mb-0 font-weight-light">Minggu Lalu</p>
                 <p class="h3 mb-0 font-weight-bold">
                 <span class="amount">{{ $payments['weekly'] }}</span> IDR
                 </p>

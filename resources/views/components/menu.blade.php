@@ -1,5 +1,5 @@
 <nav class="menu-container vh-100 position-fixed" style="top: 50px;">
-    <ul id="" 
+    <ul id="sidenav-menu" 
         role="navigation" 
         aria-label="Main Navigation" 
         class="nav nav-pills flex-column bg-white py-4 px-3 vh-100 shadow-sm nav-piils" style="width: 225px;">
@@ -25,6 +25,7 @@
                     <i class="fas fa-dollar-sign"></i>
                 </span>
                 <span class="label">Pembayaran</span>
+                <i class="fas fa-chevron-down ml-2"></i>
             </a>
             <div class="collapse ml-4" id="typePayment">
                 <form action="{{ route('payment.show') }}" method="GET" class="nav-item">
