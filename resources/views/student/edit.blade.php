@@ -38,7 +38,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="gender" class="form-label">Jenis Kelamin</label>
-                    <select id="gender" class="form-select" name="edit_gender" required>
+                    <select id="gender" class="custom-select" name="edit_gender" required>
                         <option 
                           value="L" 
                           @if ($student->gender === 'L') selected @endif>

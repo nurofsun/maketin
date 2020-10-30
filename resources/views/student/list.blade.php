@@ -1,5 +1,6 @@
-<div class="p-2 bg-white shadow-sm rounded-lg table-responsive">
-    <table class="table bg-white table-white table-borderless text-muted align-middle">
+<div class="p-2 bg-white shadow-sm rounded-lg">
+    <div class="foo"></div>
+    <table class="table bg-white table-white table-borderless text-muted align-middle" id="studentTable">
         <thead>
             <tr class="align-middle">
                 <th scope="col">
@@ -13,8 +14,8 @@
         <tbody>
             @foreach( $students as $student)
                 <tr>
-                    <td>{{ $student->id }}</td>
-                    <td>
+                    <td class="align-middle">{{ $student->id }}</td>
+                    <td class="align-middle">
                         <div class="d-flex align-items-center">
                             @if ($student->avatar)
                                 <img class="avatar mr-2" src="{{ asset(Storage::url($student->avatar)) }}" alt="{{ $student->name }}">
@@ -24,12 +25,12 @@
                             <div>
                                 <p class="name mb-0 font-weight-bold">{{ $student->name }}</p>
                                 <p class="mb-0 small">
-                                    <span class="level badge bg-primary">Level {{ $student->level }}</span>
+                                    <span class="level badge badge-primary">Level {{ $student->level }}</span>
                                 </p>
                             </div>
                         </div>
                     </td>
-                    <td>
+                    <td class="align-middle">
                         @if ($student->gender === 'L')
                             <span class="small">
                                 <i class="fas fa-mars"></i>
@@ -42,7 +43,7 @@
                             </span>
                         @endif
                     </td>
-                    <td>
+                    <td class="align-middle">
                         <div class="btn-group">
                             <form action="{{ route('student.destroy', $student->id) }}" method="POST" class="d-inline-block">
                                 @csrf

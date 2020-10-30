@@ -1,6 +1,6 @@
 <div class="bg-white rounded-lg shadow-sm p-3">
     @if (count($payments) != 0)
-    <table class="table align-middle table-light table-borderless">
+    <table class="table table-borderless">
         <thead>
             <tr class="align-middle">
                 <th>#</th>
@@ -41,12 +41,14 @@
                                  action="{{ route('payment.destroy', [ 'student_id' => $student->id , 'id' => $payment->id]) }}">
                                  @csrf
                                  @method('DELETE')
-                                 <button class="btn btn-sm btn-light" type="submit">
+                                 <button class="btn btn-sm btn-light-danger" type="submit">
                                      <i class="fas fa-trash"></i>
+                                     <span>Hapus</span>
                                  </button>
                                 </form>
-                                <button data-toggle="modal" data-target="#editPaymentModal-{{ $loop->iteration }}" class="btn btn-sm btn-light">
+                                <button data-toggle="modal" data-target="#editPaymentModal-{{ $loop->iteration }}" class="btn btn-sm btn-light-dark">
                                     <i class="fas fa-pencil-alt"></i>
+                                    <span>Edit</span>
                                 </button>
                                 @include('payment.edit')
                             </div>

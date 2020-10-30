@@ -6,30 +6,30 @@
         @csrf
         <div class="row mb-2">
             <div class="col">
-                <label class="small text-muted">Nominal</label>
+                <label class="form-label">Nominal</label>
                 <input class="form-control amount-input" type="text" name="amount" placeholder="Nominal" value="10000">
             </div>
             <div class="col">
-                <label class="small text-muted">Tanggal Pembayaran</label>
+                <label class="form-label">Tanggal Pembayaran</label>
                 <input class="form-control" type="date" name="created_at" value="{{ now()->format('Y-m-d') }}">
             </div>
         </div>
 
         <div class="row mb-2">
             <div class="col-3">
-                <label class="small text-muted">Tahun Ajaran</label>
+                <label class="form-label">Tahun Ajaran</label>
                 <input class="form-control" type="number" name="year" step="1" min="{{ now()->year }}" max="2099" value="{{ now()->year }}">
             </div>
             <div class="col-3">
-                <label class="small text-muted">Pilih Bulan</label>
-                <select name="month" class="form-select">
+                <label class="form-label">Pilih Bulan</label>
+                <select name="month" class="custom-select">
                     @foreach ($months as $month)
                         <option value="{{ $loop->iteration }}">{{ $month }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="col">
-                <p class="mb-0 small text-muted font-weight-bold">Status</p>
+                <p class="form-label font-weight-bold">Status</p>
                 <div class="d-flex">
                     <div class="form-check mr-2">
                         <input class="form-check-input" type="radio" value="true" name="status" checked>
