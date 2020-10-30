@@ -2,7 +2,7 @@
     <ul id="" 
         role="navigation" 
         aria-label="Main Navigation" 
-        class="nav flex-column bg-white py-3 pr-3 vh-100 shadow-sm nav-piils" style="width: 225px;">
+        class="nav nav-pills flex-column bg-white py-3 px-3 vh-100 shadow-sm nav-piils" style="width: 225px;">
         <li class="nav-item">
             <a class="nav-link" href="{{ route('home') }}">
                 <span class="icon mr-2">
@@ -20,12 +20,29 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#typePayment" data-toggle="collapse">
                 <span class="icon mr-2 text-center d-inline-block">
                     <i class="fas fa-dollar-sign"></i>
                 </span>
                 <span class="label">Pembayaran</span>
             </a>
+            <div class="collapse ml-4" id="typePayment">
+                <form action="{{ route('payment.show') }}" method="GET">
+                    @csrf
+                    <input type="hidden" name="type" value="monthly">
+                    <button class="nav-link btn btn-link btn-sm d-block w-100 text-left outline-none shadow-none">Bulanan</button>
+                </form>
+                <form action="{{ route('payment.show') }}" method="GET">
+                    @csrf
+                    <input type="hidden" name="type" value="daily">
+                    <button class="nav-link btn btn-link btn-sm d-block w-100 text-left outline-none shadow-none">Harian</button>
+                </form>
+                <form action="{{ route('payment.show') }}" method="GET">
+                    @csrf
+                    <input type="hidden" name="type" value="weekly">
+                    <button class="nav-link btn btn-link btn-sm d-block w-100 text-left outline-none shadow-none">Mingguan</button>
+                </form>
+            </div>
         </li>
     </ul>
 </nav>

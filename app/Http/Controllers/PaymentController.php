@@ -8,17 +8,8 @@ use App\Models\Student;
 
 class PaymentController extends Controller
 {
-    public function index($id) {
 
-        $student = Student::find($id);
-
-        $payments = Student::find($id)->payments()->orderBy('month', 'asc')->get();
-
-        $payments_completed_length = Student::find($id)->payments()->where('status', true)->count();
-
-        $payments_uncompleted_length = Student::find($id)->payments()->where('status', false)->count();
-
-        $months = [
+    public $months = [
             'Januari',
             'Februari',
             'Maret',
@@ -31,12 +22,23 @@ class PaymentController extends Controller
             'Oktober',
             'November',
             'Desember'
-        ];
+    ];
+
+    public function index($id) {
+
+        $student = Student::find($id);
+
+        $payments = Student::find($id)->payments()->orderBy('month', 'asc')->get();
+
+        $payments_completed_length = Student::find($id)->payments()->where('status', true)->count();
+
+        $payments_uncompleted_length = Student::find($id)->payments()->where('status', false)->count();
+
 
         return view(
             'payment.index', 
             [
-                'months' => $months,
+                'months' => $this->months,
                 'student' => $student, 
                 'payments' => $payments,
                 'payments_completed_length' => $payments_completed_length,
@@ -44,6 +46,41 @@ class PaymentController extends Controller
                 'title' => 'Riwayat Pembayaran'
             ]
         );
+    }
+
+    public function show(Request $request) {
+        $type_record = $request->query('type');
+        $payment_history = null;
+        $title = null;
+
+        if ($type_record !== null)
+        {
+            switch($type_record) {
+                case 'monthly': 
+                    $title = 'Riwayat Pembayaran Bulan Ini';
+                    $payment_history = Payment::where('status', true)
+                        ->whereMonth('created_at', date('m'))
+                        ->whereYear('created_at', date('Y'))->get();
+                    break;
+                case 'daily':
+                    $title = 'Riwayat Pembarayan Harian';
+                    $payment_history = Payment::where('status', true)
+                        ->whereDate('created_at', today())->get();
+                    break;
+                case 'weekly':
+                    $title = 'Riwayat Pembayaran Minggu Ini';
+                    $payment_history = Payment::where('status', true)
+                        ->whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])->get();
+                    break;
+                default:
+                    $title = 'History Pembayaran';
+                    $payment_history = Payment::where('status', true)->get();
+            } 
+
+            return view('payment.show', [ 'title' => $title, 'history' => $payment_history, 'months' => $this->months ]);
+        }
+
+        return view('payment.show', [ 'title' => 'Error', 'errors' => 'Cannot show payment history' ]);
     }
 
     public function store(Request $request, $id)

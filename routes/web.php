@@ -28,6 +28,8 @@ Route::middleware('auth')->prefix('dashboard')->group(function() {
     Route::post('student/{id}/payment/store', [ PaymentController::class, 'store' ])->name('payment.store');
     Route::put('student/{student_id}/payment/{id}/update', [ PaymentController::class, 'update' ])->name('payment.update');
     Route::delete('student/{student_id}/payment/{id}/delete', [ PaymentController::class, 'destroy' ])->name('payment.destroy');
+
+    Route::get('payments', [PaymentController::class, 'show'])->name('payment.show');
 });
 
 Route::get('/', [ LoginController::class, 'login' ] )->name('login');
