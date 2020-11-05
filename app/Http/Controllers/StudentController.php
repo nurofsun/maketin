@@ -15,6 +15,7 @@ class StudentController extends Controller
     }
     public function store(Request $request) {
         $request->validate([
+            'id' => 'required',
             'name' => 'required|max:255',
             'gender' => 'required',
             'level' => 'required'
@@ -23,6 +24,7 @@ class StudentController extends Controller
         $avatar_path = $request->file('avatar')->storePublicly('public/avatars');
 
         Student::create([
+            'id' => $request->input('id'),
             'avatar' => $avatar_path,
             'name' => $request->input('name'),
             'gender' => $request->input('gender'),
@@ -54,7 +56,8 @@ class StudentController extends Controller
 
     public function destroy($id) {
         $student = Student::where('id', $id)->first();
-        Storage::delete($student->avatar);
+
+        Storage::disk('public')->delete($student->avatar);
 
         Student::destroy($id);
 

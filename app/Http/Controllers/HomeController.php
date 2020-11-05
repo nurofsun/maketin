@@ -28,14 +28,11 @@ class HomeController extends Controller
         return Payment::where('status', true)->sum('amount');
     }
 
-    public function get_total_payment_last_week() {
-        $previous_week = strtotime("-1 week +1 day");
-        $start_week = strtotime("last sunday midnight", $previous_week);
-        $end_week = strtotime("next saturday", $start_week);
-        $start_week = date("Y-m-d", $start_week);
-        $end_week = date("Y-m-d", $end_week);
+    public function get_total_payment_weekly() {
 
-        return Payment::where('status', true)->whereBetween('created_at', [ $start_week, $end_week ])->sum('amount');
+        return Payment::where('status', true)
+            ->whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])
+            ->sum('amount');
     }
 
     public function get_total_payment_monthly()
@@ -55,7 +52,7 @@ class HomeController extends Controller
             'payments' => [
                 'all' => $this->get_total_payment_all(),
                 'monthly' => $this->get_total_payment_monthly(),
-                'weekly' => $this->get_total_payment_last_week(),
+                'weekly' => $this->get_total_payment_weekly(),
                 'today' => $this->get_payment_today()
             ]
         ];

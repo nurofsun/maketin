@@ -12,8 +12,15 @@
                 @include('section.log')
             </div>
         </div>
+        <div id="payment-chart-weekly">
+            <!-- d3 goes here -->
+        </div>
     </section>
 @endsection
+
+@push('d3')
+    <script src="{{ asset('d3/d3.min.js') }}" type="text/javascript"></script>
+@endpush
 
 @push('scripts')
     <script src="{{ @asset('js/home.js') }}"></script>
