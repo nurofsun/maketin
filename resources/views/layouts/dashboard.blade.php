@@ -15,9 +15,14 @@
                 <div class="col-12 col-md-2">
                     @include('components.menu')
                 </div>
-                <main class="col-12 col-md-10">
-                    @yield('content')
-                </main>
+                <div class="col-12 col-md-10">
+                    <main>
+                        @yield('content')
+                    </main>
+                    <footer class="p-3">
+                        <p class="credit text-center">maketin &copy; {{ now()->format('Y') }}</p>
+                    </footer>
+                </div>
             </section>
         </div>
         @stack('d3')

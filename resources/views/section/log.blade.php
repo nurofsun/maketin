@@ -6,10 +6,10 @@
         @if (count($payments['today']) != 0)
             @foreach ($payments['today'] as $item)
                 <li class="shadow-sm rounded-lg d-flex align-items-center">
-                    <img class="avatar mr-2" src="{{ Storage::url($item->student->avatar) }}" alt="{{ $item->student->name }}">
-                    <p class="mb-0">
-                    <span class="font-weight-bold">{{ $item->student->name }}</span> 
-                    membayar sebesar <span class="amount">{{ $item->amount }}</span> IDR
+                    <img class="avatar mr-2 flex-shrink-0" src="{{ Storage::url($item->student->avatar) }}" alt="{{ $item->student->name }}">
+                    <p class="mb-0 small text-muted">
+                        <span class="font-weight-bold">{{ $item->student->name }}</span> 
+                        membayar sebesar <span class="amount">{{ $item->amount }}</span> IDR
                     </p>
                 </li>
             @endforeach

@@ -37,7 +37,66 @@ class HomeController extends Controller
 
     public function get_total_payment_monthly()
     {
-        return Payment::where('status', true)->where('created_at', '>=' , now()->subdays(30))->sum('amount');
+        return Payment::where('status', true)->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->sum('amount');
+    }
+
+    public function get_total_payment_by_month($month) {
+        return Payment::whereMonth('created_at', $month)
+            ->whereYear('created_at', now()->format('Y'))
+            ->where('status', true)->sum('amount'); 
+    }
+
+    public function get_total_payment_all_month() {
+        return [
+            [
+                'month' => 'Januari',
+                'amount' => $this->get_total_payment_by_month(1)
+            ],
+            [
+                'month' => 'Februari',
+                'amount' => $this->get_total_payment_by_month(2) 
+            ],
+            [
+                'month' => 'Maret',
+                'amount' => $this->get_total_payment_by_month(3)
+            ],
+            [
+                'month' => 'April',
+                'amount' => $this->get_total_payment_by_month(4)
+            ],
+            [
+                'month' => 'Mei',
+                'amount' => $this->get_total_payment_by_month(5)
+            ],
+            [
+                'month' => 'Juni',
+                'amount' => $this->get_total_payment_by_month(6)
+            ],
+            [
+                'month' => 'Juli',
+                'amount' => $this->get_total_payment_by_month(7)
+            ],
+            [
+                'month' => 'Agustus',
+                'amount' => $this->get_total_payment_by_month(8)
+            ],
+            [
+                'month' => 'September',
+                'amount' => $this->get_total_payment_by_month(9)
+            ],
+            [
+                'month' => 'Oktober',
+                'amount' => $this->get_total_payment_by_month(10)
+            ],
+            [
+                'month' => 'November',
+                'amount' => $this->get_total_payment_by_month(11)
+            ],
+            [
+                'month' => 'Desember',
+                'amount' => $this->get_total_payment_by_month(12)
+            ],
+        ];
     }
 
     public function index()
@@ -53,7 +112,8 @@ class HomeController extends Controller
                 'all' => $this->get_total_payment_all(),
                 'monthly' => $this->get_total_payment_monthly(),
                 'weekly' => $this->get_total_payment_weekly(),
-                'today' => $this->get_payment_today()
+                'today' => $this->get_payment_today(),
+                'all_month' => $this->get_total_payment_all_month()
             ]
         ];
         return view('home', $data);

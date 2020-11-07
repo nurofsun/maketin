@@ -3,7 +3,7 @@
         role="navigation" 
         aria-label="Main Navigation" 
         class="nav nav-pills flex-column bg-white py-4 px-3 vh-100 shadow-sm nav-piils" style="width: 225px;">
-        <li class="nav-item">
+        <li class="nav-item mb-2">
             <a class="nav-link" href="{{ route('home') }}">
                 <span class="icon mr-2">
                     <i class="fas fa-home"></i>
@@ -11,7 +11,7 @@
                 <span class="label">Dashboard</span>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mb-2">
             <a class="nav-link" href="{{ route('student.index') }}">
                 <span class="icon mr-2">
                     <i class="fas fa-users"></i>
@@ -19,7 +19,7 @@
                 <span class="label">Santri</span>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mb-2">
             <a class="nav-link" href="#typePayment" data-toggle="collapse">
                 <span class="icon mr-2 text-center d-inline-block">
                     <i class="fas fa-dollar-sign"></i>
@@ -44,6 +44,12 @@
                     <button class="nav-link btn btn-link btn-sm d-block w-100 text-left outline-none shadow-none">Mingguan</button>
                 </form>
             </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link">
+                <span class="icon"><i class="fas fa-cog"></i></span>
+                Pengaturan
+            </a>
         </li>
     </ul>
 </nav>

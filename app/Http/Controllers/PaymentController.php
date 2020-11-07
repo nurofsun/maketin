@@ -144,7 +144,8 @@ class PaymentController extends Controller
             'edit_amount' => 'required',
             'edit_month' => 'required',
             'edit_year' => 'required',
-            'edit_status' => 'required'
+            'edit_status' => 'required',
+            'edit_created_at' => 'required'
         ]);
 
         Payment::where('id', $id)
@@ -153,7 +154,9 @@ class PaymentController extends Controller
                 'amount' => $request->input('edit_amount'),
                 'month' => $request->input('edit_month'),
                 'year' => $request->input('edit_year'),
-                'status' => $request->input('edit_status')
+                'status' => $request->input('edit_status'),
+                'created_at' => $request->input('edit_created_at'),
+                'updated_at' => now()
             ]);
 
         return redirect()->back();
