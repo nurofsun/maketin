@@ -23,7 +23,6 @@
         "bootstrap": "^4.5.3",
         "datatables.net-bs4": "^1.10.22",
         "datatables.net-buttons-bs4": "^1.6.5",
-        "exceljs": "^4.1.1",
         "jquery": "^3.5.1",
         "jszip": "^3.5.0",
         "pdfmake": "^0.1.68",

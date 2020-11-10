@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/rupiafjs/src/js/rupiaf.amd.js":
-/*!****************************************************!*\
-  !*** ./node_modules/rupiafjs/src/js/rupiaf.amd.js ***!
-  \****************************************************/
+/***/ "./node_modules/.pnpm/rupiafjs@1.0.0/node_modules/rupiafjs/src/js/rupiaf.amd.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/.pnpm/rupiafjs@1.0.0/node_modules/rupiafjs/src/js/rupiaf.amd.js ***!
+  \**************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -143,7 +143,7 @@ class Rupiaf {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var rupiafjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rupiafjs */ "./node_modules/rupiafjs/src/js/rupiaf.amd.js");
+/* harmony import */ var rupiafjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rupiafjs */ "./node_modules/.pnpm/rupiafjs@1.0.0/node_modules/rupiafjs/src/js/rupiaf.amd.js");
 
 
 function getAmounts() {
