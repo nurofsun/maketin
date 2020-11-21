@@ -1,6 +1,6 @@
 <div class="modal" tabindex="1" id="modalEditStudent-{{ $student->id }}">
     <div class="modal-dialog">
-        <form class="modal-content" id="editForm-{{ $student->id }}" action="{{ route('student.update', $student->id) }}" method="POST">
+        <form class="modal-content" enctype="multipart/form-data" id="editForm-{{ $student->id }}" action="{{ route('student.update', $student->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="modal-header">
@@ -10,6 +10,9 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div class="mb-3">
+                    <input type="file" name="edit_avatar">
+                </div>
                 <div class="mb-3">
                     <label for="userid" class="form-label">userID</label>
                     <input id="userid" class="form-control" type="text" placeholder="UserID" name="edit_id" value="{{ $student->id }}">
