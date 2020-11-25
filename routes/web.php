@@ -33,5 +33,5 @@ Route::middleware('auth')->prefix('dashboard')->group(function() {
 });
 
 Route::get('/', [ LoginController::class, 'login' ] )->name('login');
-Route::post('/', [ LoginController::class, 'authenticate' ])->name('authenticate');
-Route::delete('/', [ LoginController::class, 'logout' ])->name('logout');
+Route::post('/login', [ LoginController::class, 'authenticate' ])->name('authenticate');
+Route::delete('/logout', [ LoginController::class, 'logout' ])->name('logout');
