@@ -64,7 +64,7 @@ function statisticYearlyChart() {
                         .attr('transform', d => `translate(${x(d.month)}, 0)`);
 
             bar.append('rect')
-                .attr('fill', '#0CCE6B')
+                .attr('fill', '#00CE14')
                 .attr('y', d => y(d.amount))
                 .attr('height', d => y(0) - y(d.amount))
                 .attr('width', x.bandwidth())

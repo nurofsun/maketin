@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/.pnpm/rupiafjs@1.0.0/node_modules/rupiafjs/src/js/rupiaf.amd.js":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/.pnpm/rupiafjs@1.0.0/node_modules/rupiafjs/src/js/rupiaf.amd.js ***!
-  \**************************************************************************************/
+/***/ "./node_modules/rupiafjs/src/js/rupiaf.amd.js":
+/*!****************************************************!*\
+  !*** ./node_modules/rupiafjs/src/js/rupiaf.amd.js ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -143,7 +143,7 @@ class Rupiaf {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var rupiafjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rupiafjs */ "./node_modules/.pnpm/rupiafjs@1.0.0/node_modules/rupiafjs/src/js/rupiaf.amd.js");
+/* harmony import */ var rupiafjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rupiafjs */ "./node_modules/rupiafjs/src/js/rupiaf.amd.js");
 
 
 function getAmounts() {
@@ -195,7 +195,7 @@ function statisticYearlyChart() {
     var bar = chart.selectAll('g').data(data).join('g').attr('transform', function (d) {
       return "translate(".concat(x(d.month), ", 0)");
     });
-    bar.append('rect').attr('fill', '#0CCE6B').attr('y', function (d) {
+    bar.append('rect').attr('fill', '#00CE14').attr('y', function (d) {
       return y(d.amount);
     }).attr('height', function (d) {
       return y(0) - y(d.amount);
