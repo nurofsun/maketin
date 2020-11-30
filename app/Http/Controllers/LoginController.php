@@ -9,7 +9,12 @@ class LoginController extends Controller
 {
     public function login() 
     {
-        return view('login', [ 'title' => 'Login' ]);
+        if (Auth::user() !== null) {
+            return redirect()->intended('dashboard');
+        }
+        else {
+            return view('login', [ 'title' => 'Login' ]);
+        }
     }
 
     public function authenticate(Request $request) 
@@ -32,6 +37,10 @@ class LoginController extends Controller
 
     public function logout()
     {
-        return Auth::logout();
+        Auth::logout();
+
+        if (Auth::user() === null) {
+            return redirect()->route('login');
+        }
     }
 }
