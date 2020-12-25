@@ -23,7 +23,7 @@ class StudentController extends Controller
             'level' => 'required'
         ]);
 
-        $avatar_path = $request->file('avatar')->storePublicly('avatars', 'public');
+        $avatar_path = $request->file('avatar')->store('avatars', 'public');
 
         Student::create([
             'id' => $request->input('id'),
@@ -63,7 +63,7 @@ class StudentController extends Controller
         $avatar_path = $request->file('edit_avatar')->storePublicly('avatars', 'public');
 
         Student::where('id', $id)
-            ->update([ 
+            ->update([
                 'id' => $request->input('edit_id'),
                 'name' => $request->input('edit_name'),
                 'avatar' => $avatar_path,
@@ -79,10 +79,12 @@ class StudentController extends Controller
 
         if (Storage::disk('public')->exists($student->avatar)) {
             Storage::disk('public')->delete($student->avatar);
+            student::destroy($id);
+            return redirect()->back();
         }
         else {
-            Student::destroy($id);
-            return redirect()->back(); 
+            student::destroy($id);
+            return redirect()->back();
         }
     }
 }
